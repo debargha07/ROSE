@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rose Day for Preyoshi</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f9d9d9;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #e74c3c;
+      margin-bottom: 20px;
+    }
+
+    .rose {
+      font-size: 10rem;
+      color: #e74c3c;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .message {
+      font-size: 1.5rem;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .heart {
+      color: #e74c3c;
+    }
+
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .heart-fall {
+      position: absolute;
+      font-size: 20px;
+      color: #e74c3c;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy Rose Day, Preyoshi! 🌹</h1>
+    <div class="rose">🌹</div>
+    <p class="message">You are the most beautiful rose in my garden of life. <span class="heart">❤️</span></p>
+  </div>
+
+  <div class="hearts">
+    <!-- Hearts will be generated here -->
+  </div>
+
+  <script>
+    // Function to create falling hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart-fall');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+      heart.style.opacity = Math.random();
+      document.querySelector('.hearts').appendChild(heart);
+
+      // Remove heart after animation ends
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    // Generate hearts every 300ms
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
+
+
